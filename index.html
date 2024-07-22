@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Commands</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .command {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: background 0.3s;
+        }
+
+        .command:hover {
+            background: #f0f0f0;
+        }
+
+        .command h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .description {
+            margin: 10px 0;
+        }
+
+        .example {
+            display: none;
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .example-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .example-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Linux Commands BY PRANIT SHIROLE</h1>
+
+        <!-- Beginner Commands Section -->
+        <div class="section">
+            <h2>Beginner Commands</h2>
+            <div class="command">
+                <h3>ls</h3>
+                <p class="description">Lists directory contents.</p>
+                <button class="example-btn" onclick="toggleExample('example-ls')">Show Example</button>
+                <p class="example" id="example-ls">Example: <code>ls -l</code> lists files in the current directory in long format, showing details.</p>
+            </div>
+            <div class="command">
+                <h3>cd</h3>
+                <p class="description">Changes the current directory.</p>
+                <button class="example-btn" onclick="toggleExample('example-cd')">Show Example</button>
+                <p class="example" id="example-cd">Example: <code>cd /path/to/directory</code></p>
+            </div>
+            <div class="command">
+                <h3>pwd</h3>
+                <p class="description">Prints the current working directory.</p>
+                <button class="example-btn" onclick="toggleExample('example-pwd')">Show Example</button>
+                <p class="example" id="example-pwd">Example: <code>pwd</code></p>
+            </div>
+            <div class="command">
+                <h3>cp</h3>
+                <p class="description">Copies files or directories.</p>
+                <button class="example-btn" onclick="toggleExample('example-cp')">Show Example</button>
+                <p class="example" id="example-cp">Example: <code>cp source_file destination_file</code></p>
+            </div>
+            <div class="command">
+                <h3>mv</h3>
+                <p class="description">Moves or renames files or directories.</p>
+                <button class="example-btn" onclick="toggleExample('example-mv')">Show Example</button>
+                <p class="example" id="example-mv">Example: <code>mv old_name new_name</code></p>
+            </div>
+            <div class="command">
+                <h3>rm</h3>
+                <p class="description">Removes files or directories.</p>
+                <button class="example-btn" onclick="toggleExample('example-rm')">Show Example</button>
+                <p class="example" id="example-rm">Example: <code>rm filename</code><br>Example: <code>rm -r directory_name</code> (Recursively removes a directory and its contents)</p>
+            </div>
+            <div class="command">
+                <h3>mkdir</h3>
+                <p class="description">Creates a directory.</p>
+                <button class="example-btn" onclick="toggleExample('example-mkdir')">Show Example</button>
+                <p class="example" id="example-mkdir">Example: <code>mkdir directory_name</code></p>
+            </div>
+            <div class="command">
+                <h3>rmdir</h3>
+                <p class="description">Removes an empty directory.</p>
+                <button class="example-btn" onclick="toggleExample('example-rmdir')">Show Example</button>
+                <p class="example" id="example-rmdir">Example: <code>rmdir directory_name</code></p>
+            </div>
+            <div class="command">
+                <h3>touch</h3>
+                <p class="description">Creates an empty file or updates the access and modification times of a file.</p>
+                <button class="example-btn" onclick="toggleExample('example-touch')">Show Example</button>
+                <p class="example" id="example-touch">Example: <code>touch filename</code></p>
+            </div>
+            <div class="command">
+                <h3>echo</h3>
+                <p class="description">Displays a line of text.</p>
+                <button class="example-btn" onclick="toggleExample('example-echo')">Show Example</button>
+                <p class="example" id="example-echo">Example: <code>echo "Hello, World!"</code></p>
+            </div>
+            <div class="command">
+                <h3>cat</h3>
+                <p class="description">Concatenates and displays file content.</p>
+                <button class="example-btn" onclick="toggleExample('example-cat')">Show Example</button>
+                <p class="example" id="example-cat">Example: <code>cat filename</code></p>
+            </div>
+            <div class="command">
+                <h3>more</h3>
+                <p class="description">Displays file content one page at a time.</p>
+                <button class="example-btn" onclick="toggleExample('example-more')">Show Example</button>
+                <p class="example" id="example-more">Example: <code>more filename</code></p>
+            </div>
+            <div class="command">
+                <h3>less</h3>
+                <p class="description">Similar to <code>more</code>, but allows backward movement in the file as well.</p>
+                <button class="example-btn" onclick="toggleExample('example-less')">Show Example</button>
+                <p class="example" id="example-less">Example: <code>less filename</code></p>
+            </div>
+            <div class="command">
+                <h3>head</h3>
+                <p class="description">Outputs the first part of files.</p>
+                <button class="example-btn" onclick="toggleExample('example-head')">Show Example</button>
+                <p class="example" id="example-head">Example: <code>head -n 10 filename</code> (Displays the first 10 lines)</p>
+            </div>
+            <div class="command">
+                <h3>tail</h3>
+                <p class="description">Outputs the last part of files.</p>
+                <button class="example-btn" onclick="toggleExample('example-tail')">Show Example</button>
+                <p class="example" id="example-tail">Example: <code>tail -n 10 filename</code> (Displays the last 10 lines)</p>
+            </div>
+            <div class="command">
+                <h3>man</h3>
+                <p class="description">Displays the manual page for a command.</p>
+                <button class="example-btn" onclick="toggleExample('example-man')">Show Example</button>
+                <p class="example" id="example-man">Example: <code>man ls</code></p>
+            </div>
+               <script>
+        function toggleExample(id) {
+            var example = document.getElementById(id);
+            if (example.style.display === "none" || example.style.display === "") {
+                example.style.display = "block";
+            } else {
+                example.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
