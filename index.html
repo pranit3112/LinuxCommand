@@ -3,198 +3,1040 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linux Commands</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+    <title>Linux Commands by Pranit Shirole</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+<style>	
 
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
 
-        .section {
-            margin-bottom: 30px;
-        }
+/* Footer styles */
+footer {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .section h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
+footer p {
+    margin: 0;
+}
 
-        .command {
-            margin-bottom: 15px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #fafafa;
-            transition: background 0.3s;
-        }
+.dark-mode footer {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
 
-        .command:hover {
-            background: #f0f0f0;
-        }
 
-        .command h3 {
-            margin-top: 0;
-            color: #333;
-        }
 
-        .description {
-            margin: 10px 0;
-        }
+/* Default light theme styles */
 
-        .example {
-            display: none;
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .example-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-        .example-btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+h1 {
+    margin: 0;
+    color: #4CAF50;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-toggle {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: #4CAF50;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.command {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.command:hover {
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.command h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.description {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.example {
+    display: none;
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+    background: #e8e8e8;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.example-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+}
+
+.example-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Dark mode styles */
+
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode header {
+    border-bottom: 2px solid #616161;
+}
+
+.dark-mode h1 {
+    color: #9ccc65;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .section h2 {
+    color: #9ccc65;
+    border-bottom: 3px solid #9ccc65;
+}
+
+.dark-mode .command {
+    background: #333;
+    border-color: #444;
+}
+
+.dark-mode .command.active {
+    background-color: #555;
+}
+
+.dark-mode .example {
+    background: #2c2c2c;
+    color: #e0e0e0;
+}
+
+/* Default light theme styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    color: #4CAF50;
+}
+
+.dark-mode-toggle {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #45a049;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.command {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: background 0.3s;
+}
+
+.command:hover {
+    background: #f0f0f0;
+}
+
+.command h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.description {
+    margin: 10px 0;
+}
+
+.example {
+    display: none;
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+}
+
+.example-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.example-btn:hover {
+    background-color: #45a049;
+}
+
+/* Dark mode styles */
+
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .command {
+    background: #333;
+    border-color: #444;
+}
+
+.dark-mode .command.active {
+    background-color: #555;
+}
+
+/* Ensuring example boxes are not affected by dark mode */
+.command .example {
+    background: inherit; /* Ensure example box background matches command box */
+    color: inherit; /* Ensure text color matches command box */
+}
+
+
+
+
+
+	body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.command {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: background 0.3s;
+}
+
+.command:hover {
+    background: #f0f0f0;
+}
+
+.command h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.description {
+    margin: 10px 0;
+}
+
+.example {
+    display: none;
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+    font-family: 'Roboto', sans-serif; /* Changed font to Roboto */
+}
+
+
+.example-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.example-btn:hover {
+    background-color: #45a049;
+}
+
+
+.example {
+    display: none;
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+    font-family: 'Roboto', sans-serif; /* Font style */
+}
+
+.command.active {
+    background-color: #e0f7fa; /* Light cyan color when active */
+}
+
+</style>
 </head>
 <body>
     <div class="container">
-        <h1>Linux Commands BY PRANIT SHIROLE</h1>
-
-        <!-- Beginner Commands Section -->
-        <div class="section">
+        <header>
+            <h1>Linux Commands By Pranit Shirole</h1>
+            
+			
+			 
+          
+                <button id="dark-mode-btn" class="dark-mode-toggle">🌙 Dark Mode</button>
+           
+       
+        </header>
+        <section class="section">
             <h2>Beginner Commands</h2>
             <div class="command">
                 <h3>ls</h3>
                 <p class="description">Lists directory contents.</p>
-                <button class="example-btn" onclick="toggleExample('example-ls')">Show Example</button>
-                <p class="example" id="example-ls">Example: <code>ls -l</code> lists files in the current directory in long format, showing details.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>ls -l</code> lists files in the current directory in long format, showing details.</p>
             </div>
             <div class="command">
                 <h3>cd</h3>
                 <p class="description">Changes the current directory.</p>
-                <button class="example-btn" onclick="toggleExample('example-cd')">Show Example</button>
-                <p class="example" id="example-cd">Example: <code>cd /path/to/directory</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>cd /path/to/directory</code></p>
             </div>
             <div class="command">
                 <h3>pwd</h3>
                 <p class="description">Prints the current working directory.</p>
-                <button class="example-btn" onclick="toggleExample('example-pwd')">Show Example</button>
-                <p class="example" id="example-pwd">Example: <code>pwd</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>pwd</code></p>
             </div>
             <div class="command">
                 <h3>cp</h3>
                 <p class="description">Copies files or directories.</p>
-                <button class="example-btn" onclick="toggleExample('example-cp')">Show Example</button>
-                <p class="example" id="example-cp">Example: <code>cp source_file destination_file</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>cp source_file destination_file</code></p>
             </div>
             <div class="command">
                 <h3>mv</h3>
                 <p class="description">Moves or renames files or directories.</p>
-                <button class="example-btn" onclick="toggleExample('example-mv')">Show Example</button>
-                <p class="example" id="example-mv">Example: <code>mv old_name new_name</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>mv old_name new_name</code></p>
             </div>
             <div class="command">
                 <h3>rm</h3>
                 <p class="description">Removes files or directories.</p>
-                <button class="example-btn" onclick="toggleExample('example-rm')">Show Example</button>
-                <p class="example" id="example-rm">Example: <code>rm filename</code><br>Example: <code>rm -r directory_name</code> (Recursively removes a directory and its contents)</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>rm filename</code><br>Example: <code>rm -r directory_name</code> (Recursively removes a directory and its contents)</p>
             </div>
             <div class="command">
                 <h3>mkdir</h3>
                 <p class="description">Creates a directory.</p>
-                <button class="example-btn" onclick="toggleExample('example-mkdir')">Show Example</button>
-                <p class="example" id="example-mkdir">Example: <code>mkdir directory_name</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>mkdir directory_name</code></p>
             </div>
             <div class="command">
                 <h3>rmdir</h3>
                 <p class="description">Removes an empty directory.</p>
-                <button class="example-btn" onclick="toggleExample('example-rmdir')">Show Example</button>
-                <p class="example" id="example-rmdir">Example: <code>rmdir directory_name</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>rmdir directory_name</code></p>
             </div>
             <div class="command">
                 <h3>touch</h3>
                 <p class="description">Creates an empty file or updates the access and modification times of a file.</p>
-                <button class="example-btn" onclick="toggleExample('example-touch')">Show Example</button>
-                <p class="example" id="example-touch">Example: <code>touch filename</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>touch filename</code></p>
             </div>
             <div class="command">
                 <h3>echo</h3>
                 <p class="description">Displays a line of text.</p>
-                <button class="example-btn" onclick="toggleExample('example-echo')">Show Example</button>
-                <p class="example" id="example-echo">Example: <code>echo "Hello, World!"</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>echo "Hello, World!"</code></p>
             </div>
             <div class="command">
                 <h3>cat</h3>
                 <p class="description">Concatenates and displays file content.</p>
-                <button class="example-btn" onclick="toggleExample('example-cat')">Show Example</button>
-                <p class="example" id="example-cat">Example: <code>cat filename</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>cat filename</code></p>
             </div>
             <div class="command">
                 <h3>more</h3>
                 <p class="description">Displays file content one page at a time.</p>
-                <button class="example-btn" onclick="toggleExample('example-more')">Show Example</button>
-                <p class="example" id="example-more">Example: <code>more filename</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>more filename</code></p>
             </div>
             <div class="command">
                 <h3>less</h3>
                 <p class="description">Similar to <code>more</code>, but allows backward movement in the file as well.</p>
-                <button class="example-btn" onclick="toggleExample('example-less')">Show Example</button>
-                <p class="example" id="example-less">Example: <code>less filename</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>less filename</code></p>
             </div>
             <div class="command">
                 <h3>head</h3>
                 <p class="description">Outputs the first part of files.</p>
-                <button class="example-btn" onclick="toggleExample('example-head')">Show Example</button>
-                <p class="example" id="example-head">Example: <code>head -n 10 filename</code> (Displays the first 10 lines)</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>head -n 10 filename</code> (Displays the first 10 lines)</p>
             </div>
             <div class="command">
                 <h3>tail</h3>
                 <p class="description">Outputs the last part of files.</p>
-                <button class="example-btn" onclick="toggleExample('example-tail')">Show Example</button>
-                <p class="example" id="example-tail">Example: <code>tail -n 10 filename</code> (Displays the last 10 lines)</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>tail -n 10 filename</code> (Displays the last 10 lines)</p>
             </div>
             <div class="command">
                 <h3>man</h3>
                 <p class="description">Displays the manual page for a command.</p>
-                <button class="example-btn" onclick="toggleExample('example-man')">Show Example</button>
-                <p class="example" id="example-man">Example: <code>man ls</code></p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>man ls</code></p>
             </div>
-               <script>
-        function toggleExample(id) {
-            var example = document.getElementById(id);
-            if (example.style.display === "none" || example.style.display === "") {
-                example.style.display = "block";
+            <div class="command">
+                <h3>who</h3>
+                <p class="description">Shows who is logged on.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>who</code></p>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Intermediate Commands</h2>
+            <!-- Intermediate Commands List -->
+            <div class="command">
+                <h3>ps</h3>
+                <p class="description">Displays information about active processes.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>ps aux</code> shows a detailed list of all running processes.</p>
+            </div>
+            <div class="command">
+                <h3>grep</h3>
+                <p class="description">Searches for patterns within text.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>grep "search_term" filename</code> searches for "search_term" in the specified file.</p>
+            </div>
+            <div class="command">
+                <h3>find</h3>
+                <p class="description">Searches for files and directories within a directory hierarchy.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>find /path -name "filename"</code> searches for files named "filename" under "/path".</p>
+            </div>
+            <div class="command">
+                <h3>du</h3>
+                <p class="description">Estimates file and directory space usage.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>du -sh /path</code> displays the total disk usage of the directory "/path" in human-readable format.</p>
+            </div>
+            <div class="command">
+                <h3>df</h3>
+                <p class="description">Reports file system disk space usage.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>df -h</code> shows disk space usage in human-readable format.</p>
+            </div>
+            <div class="command">
+                <h3>kill</h3>
+                <p class="description">Terminates a process by PID.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>kill 1234</code><br>Example: <code>kill -9 1234</code> (Forcefully terminates the process)</p>
+            </div>
+            <div class="command">
+                <h3>top</h3>
+                <p class="description">Displays tasks and system resource usage in real-time.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>top</code></p>
+            </div>
+            <div class="command">
+                <h3>chmod</h3>
+                <p class="description">Changes file permissions.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>chmod 755 filename</code> (Sets read, write, and execute permissions for the owner, and read and execute permissions for group and others)<br>Example: <code>chmod u+x filename</code> (Adds execute permission for the owner)</p>
+            </div>
+            <div class="command">
+                <h3>chown</h3>
+                <p class="description">Changes file ownership.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>chown user:group filename</code></p>
+            </div>
+            <div class="command">
+                <h3>alias</h3>
+                <p class="description">Creates a shortcut for a command.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>alias ll='ls -la'</code></p>
+            </div>
+            <div class="command">
+                <h3>unalias</h3>
+                <p class="description">Removes an alias.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>unalias ll</code></p>
+            </div>
+            <div class="command">
+                <h3>history</h3>
+                <p class="description">Shows the command history.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>history</code></p>
+            </div>
+            <div class="command">
+                <h3>clear</h3>
+                <p class="description">Clears the terminal screen.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>clear</code></p>
+            </div>
+            <div class="command">
+                <h3>env</h3>
+                <p class="description">Displays the environment variables.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>env</code></p>
+            </div>
+            <div class="command">
+                <h3>export</h3>
+                <p class="description">Sets environment variables.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>export VARIABLE_NAME=value</code></p>
+            </div>
+            <div class="command">
+                <h3>unset</h3>
+                <p class="description">Unsets environment variables.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>unset VARIABLE_NAME</code></p>
+            </div>
+            <div class="command">
+                <h3>source</h3>
+                <p class="description">Executes commands from a file in the current shell.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>source filename</code></p>
+            </div>
+            <div class="command">
+                <h3>which</h3>
+                <p class="description">Shows the full path of a command.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>which ls</code></p>
+            </div>
+            <div class="command">
+                <h3>uname</h3>
+                <p class="description">Displays system information.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>uname -a</code></p>
+            </div>
+            <div class="command">
+                <h3>uptime</h3>
+                <p class="description">Shows how long the system has been running.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>uptime</code></p>
+            </div>
+            <div class="command">
+                <h3>ping</h3>
+                <p class="description">Sends ICMP ECHO_REQUEST packets to network hosts.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>ping hostname</code></p>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Advanced Commands</h2>
+            <!-- Advanced Commands List -->
+            <div class="command">
+                <h3>netstat</h3>
+                <p class="description">Displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>netstat -an | grep ESTABLISHED</code> lists all established connections.</p>
+            </div>
+            <div class="command">
+                <h3>ifconfig</h3>
+                <p class="description">Displays or configures a network interface.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>ifconfig</code></p>
+            </div>
+            <div class="command">
+                <h3>iwconfig</h3>
+                <p class="description">Displays or configures wireless network interfaces.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>iwconfig</code></p>
+            </div>
+            <div class="command">
+                <h3>mount</h3>
+                <p class="description">Mounts a file system.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>mount /dev/sdX /mnt</code></p>
+            </div>
+            <div class="command">
+                <h3>umount</h3>
+                <p class="description">Unmounts a file system.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>umount /mnt</code></p>
+            </div>
+            <div class="command">
+                <h3>fdisk</h3>
+                <p class="description">Manipulates disk partition tables.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>fdisk -l</code></p>
+            </div>
+            <div class="command">
+                <h3>cronjob</h3>
+                <p class="description">Schedules commands to run at specific times.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>crontab -e</code> edits the current user's cron jobs.</p>
+            </div>
+            <div class="command">
+                <h3>tar</h3>
+                <p class="description">Archives multiple files into a single file, often used with compression.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>tar -czvf archive.tar.gz file1 file2</code> creates a compressed archive "archive.tar.gz" containing "file1" and "file2".</p>
+            </div>
+            <div class="command">
+                <h3>gzip</h3>
+                <p class="description">Compresses files.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>gzip filename</code></p>
+            </div>
+            <div class="command">
+                <h3>gunzip</h3>
+                <p class="description">Decompresses files.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>gunzip filename.gz</code></p>
+            </div>
+            <div class="command">
+                <h3>zip</h3>
+                <p class="description">Compresses files into a ZIP archive.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>zip archive.zip file1 file2</code> creates a ZIP file named "archive.zip" containing "file1" and "file2".</p>
+            </div>
+            <div class="command">
+                <h3>unzip</h3>
+                <p class="description">Extracts files from a ZIP archive.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>unzip archive.zip</code></p>
+            </div>
+            <div class="command">
+                <h3>scp</h3>
+                <p class="description">Securely copies files between hosts.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>scp file user@remote_host:/path/to/destination</code></p>
+            </div>
+            <div class="command">
+                <h3>rsync</h3>
+                <p class="description">Efficiently transfers and synchronizes files between locations.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>rsync -avz source/ destination/</code></p>
+            </div>
+            <div class="command">
+                <h3>iptables</h3>
+                <p class="description">Configures the Linux kernel firewall.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>iptables -L</code> lists all rules in the default filter table.</p>
+            </div>
+            <div class="command">
+                <h3>systemctl</h3>
+                <p class="description">Controls the systemd system and service manager.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>systemctl start|stop|restart|status service_name</code></p>
+            </div>
+            <div class="command">
+                <h3>journalctl</h3>
+                <p class="description">Views logs collected by the systemd journal.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>journalctl -u service_name</code></p>
+            </div>
+            <div class="command">
+                <h3>strace</h3>
+                <p class="description">Traces system calls and signals.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>strace -p 1234</code> (Traces the process with PID 1234)</p>
+            </div>
+            <div class="command">
+                <h3>lsof</h3>
+                <p class="description">Lists open files.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>lsof | grep filename</code></p>
+            </div>
+            <div class="command">
+                <h3>nc (netcat)</h3>
+                <p class="description">Reads and writes data across network connections.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>nc -l -p 12345</code> (Listens for incoming connections on port 12345)</p>
+            </div>
+            <div class="command">
+                <h3>awk</h3>
+                <p class="description">Pattern scanning and processing language.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>awk '{print $1}' filename</code> prints the first column of each line in "filename".</p>
+            </div>
+            <div class="command">
+                <h3>sed</h3>
+                <p class="description">Stream editor for filtering and transforming text.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>sed 's/old/new/g' filename</code> replaces all occurrences of "old" with "new" in "filename".</p>
+            </div>
+            <div class="command">
+                <h3>vim</h3>
+                <p class="description">Advanced text editor.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>vim filename</code></p>
+            </div>
+            <div class="command">
+                <h3>ssh</h3>
+                <p class="description">Opens a secure shell session to a remote host.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>ssh user@remote_host</code></p>
+            </div>
+			            <div class="command">
+                <h3>telnet</h3>
+                <p class="description">Used for bidirectional interactive text-oriented communication over a network (often replaced by more secure methods like SSH).</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>telnet hostname port</code> connects to a specified host and port.</p>
+            </div>
+            <div class="command">
+                <h3>dd</h3>
+                <p class="description">Converts and copies files.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>dd if=/dev/sdX of=/path/to/image.img</code></p>
+            </div>
+            <div class="command">
+                <h3>wget</h3>
+                <p class="description">Downloads files from the web.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>wget http://example.com/file.zip</code></p>
+            </div>
+            <div class="command">
+                <h3>curl</h3>
+                <p class="description">Transfers data from or to a server using various protocols.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>curl http://example.com</code></p>
+            </div>
+            <div class="command">
+                <h3>nano / vim / emacs</h3>
+                <p class="description">Text editors.</p>
+                <button class="example-btn">Show Example</button>
+                <p class="example">Example: <code>nano filename</code><br>Example: <code>vim filename</code><br>Example: <code>emacs filename</code></p>
+            </div>
+			
+			<section class="section">
+    <h2>cd Command Usage</h2>
+    <div class="command">
+        <h3>Basic Usage</h3>
+        <p class="description">Change to the specified directory:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd /home/user/Documents</code></p>
+    </div>
+    <div class="command">
+        <h3>Home Directory</h3>
+        <p class="description">Change to the home directory:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd</code><br>Another way to change to the home directory: <code>cd ~</code></p>
+    </div>
+    <div class="command">
+        <h3>Parent Directory</h3>
+        <p class="description">Change to the parent directory:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd ..</code></p>
+    </div>
+    <div class="command">
+        <h3>Root Directory</h3>
+        <p class="description">Change to the root directory:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd /</code></p>
+    </div>
+    <div class="command">
+        <h3>Previous Directory</h3>
+        <p class="description">Change to the previous directory:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd -</code><br>Usage: <code>cd /home/user/Documents</code><br><code>cd /var/log</code><br><code>cd -</code> (This will take you back to <code>/home/user/Documents</code>)</p>
+    </div>
+    <div class="command">
+        <h3>Relative Path</h3>
+        <p class="description">Change to a directory relative to the current directory:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd ./Downloads</code><br>Example: <code>cd ./Pictures</code></p>
+    </div>
+    <div class="command">
+        <h3>Combining with Other Commands</h3>
+        <p class="description">Change to the specified directory and execute a command:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd /var/log && ls</code><br>Example: <code>cd /tmp && touch example.txt</code></p>
+    </div>
+    <div class="command">
+        <h3>Environment Variables</h3>
+        <p class="description">Change to the home directory using the HOME environment variable:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd $HOME</code><br>Example: <code>cd $HOME</code></p>
+    </div>
+    <div class="command">
+        <h3>Special Characters</h3>
+        <p class="description">Use the physical directory structure without following symbolic links:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd -P /path/to/symlink</code><br>Example: <code>cd -P /var/www/html</code></p>
+    </div>
+    <div class="command">
+        <h3>Using Wildcards</h3>
+        <p class="description">Change to directories using wildcard characters:</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>cd /var/l*</code><br>Example: <code>cd /usr/l*</code></p>
+    </div>
+	
+	
+
+
+<section class="section">
+    <h2>netstat Command Usage</h2>
+    <div class="command">
+        <h3>Display Network Connections</h3>
+        <p class="description">Displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>netstat -an</code> lists all network connections and listening ports.</p>
+    </div>
+    <div class="command">
+        <h3>Filter Established Connections</h3>
+        <p class="description">Lists all established connections.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>netstat -an | grep ESTABLISHED</code></p>
+    </div>
+    <div class="command">
+        <h3>Display Routing Table</h3>
+        <p class="description">Shows the routing table for the system.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>netstat -r</code></p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>chmod Command Usage</h2>
+    <div class="command">
+        <h3>Change File Permissions</h3>
+        <p class="description">Sets permissions for a file or directory.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>chmod 755 filename</code> (Sets read, write, and execute permissions for the owner, and read and execute permissions for group and others)</p>
+    </div>
+    <div class="command">
+        <h3>Add Execute Permission</h3>
+        <p class="description">Adds execute permission for the owner of the file.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>chmod u+x filename</code></p>
+    </div>
+    <div class="command">
+        <h3>Remove Write Permission</h3>
+        <p class="description">Removes write permission for the group.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>chmod g-w filename</code></p>
+    </div>
+    <div class="command">
+        <h3>Set Permissions Recursively</h3>
+        <p class="description">Applies permissions recursively to directories and their contents.</p>
+        <button class="example-btn">Show Example</button>
+        <p class="example">Example: <code>chmod -R 755 directory_name</code></p>
+    </div>
+</section>
+
+</section>
+
+
+        </section>
+		
+		<footer>
+    <p>Thank you for visiting!</p>
+</footer>
+
+    </div>
+    <script>
+        document.querySelectorAll('.example-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const example = button.nextElementSibling;
+                example.style.display = example.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+		
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all buttons with the class 'example-btn'
+    var buttons = document.querySelectorAll('.example-btn');
+
+    // Attach click event listener to each button
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var commandBox = this.closest('.command'); // Find the closest parent with class 'command'
+            var exampleText = commandBox.querySelector('.example'); // Find the .example element within the .command box
+            
+            // Toggle the display of the example text
+            if (exampleText.style.display === 'none' || exampleText.style.display === '') {
+                exampleText.style.display = 'block';
+                commandBox.classList.add('active');
             } else {
-                example.style.display = "none";
+                exampleText.style.display = 'none';
+                commandBox.classList.remove('active');
             }
-        }
+        });
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var darkModeBtn = document.getElementById('dark-mode-btn');
+    var body = document.body;
+
+    darkModeBtn.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        var isDarkMode = body.classList.contains('dark-mode');
+        darkModeBtn.textContent = isDarkMode ? '🌕 Light Mode' : '🌙 Dark Mode';
+    });
+
+    // Example toggle functionality for command boxes
+    var buttons = document.querySelectorAll('.example-btn');
+
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var commandBox = this.closest('.command');
+            var exampleText = commandBox.querySelector('.example');
+            
+            if (exampleText.style.display === 'none' || exampleText.style.display === '') {
+                exampleText.style.display = 'block';
+                commandBox.classList.add('active');
+            } else {
+                exampleText.style.display = 'none';
+                commandBox.classList.remove('active');
+            }
+        });
+    });
+});
+
+
+
+
+
     </script>
 </body>
 </html>
